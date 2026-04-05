@@ -1,66 +1,274 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ColorReflex.MainPage"
-             BackgroundColor="#667eea">
+             x:Class="ColorReflex.MainPage">
+    
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#667eea" Offset="0.0" />
+            <GradientStop Color="#764ba2" Offset="0.5" />
+            <GradientStop Color="#667eea" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
     <Grid>
         <!-- Menu Screen -->
         <Grid x:Name="MenuScreen" IsVisible="True">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="0.3*" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="0.3*" />
             </Grid.RowDefinitions>
 
-            <VerticalStackLayout Grid.Row="1" Spacing="20" Padding="30">
-                <Label Text="COLOR" FontSize="60" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#4ecdc4"/>
-                <Label Text="REFLEX" FontSize="60" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White"/>
-                <Label Text="Pressione a COR, não a palavra!" FontSize="16" HorizontalOptions="Center" TextColor="White" Margin="0,10,0,20"/>
+            <VerticalStackLayout Grid.Row="1" Spacing="25" Padding="25">
+                <!-- Logo Title with Shadow -->
+                <VerticalStackLayout Spacing="0">
+                    <Frame Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" HasShadow="True">
+                        <Label Text="COLOR" FontSize="70" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#4ecdc4">
+                            <Label.Shadow>
+                                <Shadow Brush="Black" Offset="3,3" Radius="10" Opacity="0.5"/>
+                            </Label.Shadow>
+                        </Label>
+                    </Frame>
+                    <Frame Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" HasShadow="True" Margin="0,-10,0,0">
+                        <Label Text="REFLEX" FontSize="70" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White">
+                            <Label.Shadow>
+                                <Shadow Brush="Black" Offset="3,3" Radius="10" Opacity="0.5"/>
+                            </Label.Shadow>
+                        </Label>
+                    </Frame>
+                </VerticalStackLayout>
+                
+                <Border StrokeThickness="0" Padding="3" Margin="0,5,0,0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#ffffff" Offset="0.0" />
+                            <GradientStop Color="#e0e0e0" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="5,5" Radius="15" Opacity="0.3"/>
+                    </Border.Shadow>
+                    
+                    <VerticalStackLayout Padding="2">
+                        <Border StrokeThickness="0">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#f8f9ff" Offset="0.0" />
+                                    <GradientStop Color="#e8ecff" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="18"/>
+                            </Border.StrokeShape>
+                            
+                            <Label Text="⚡ Pressione a COR, não a palavra! ⚡" 
+                                   FontSize="17" 
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center" 
+                                   TextColor="#667eea" 
+                                   Padding="15,12"/>
+                        </Border>
+                    </VerticalStackLayout>
+                </Border>
 
-                <Frame BackgroundColor="#80FFFFFF" CornerRadius="15" Padding="20" Margin="0,10">
-                    <VerticalStackLayout Spacing="10">
-                        <Label Text="Como Jogar:" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#333"/>
-                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="15" RowSpacing="8">
-                            <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#ff6b6b" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
-                                <Label Text="R" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            </Frame>
-                            <Label Grid.Row="0" Grid.Column="1" Text="VERMELHO" TextColor="#ff6b6b" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                <!-- How to Play Card with Glass Effect -->
+                <Border StrokeThickness="2" Padding="0" Margin="0,5">
+                    <Border.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#ffffff" Offset="0.0" />
+                            <GradientStop Color="#cccccc" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Stroke>
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#f0ffffff" Offset="0.0" />
+                            <GradientStop Color="#d0ffffff" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="5,5" Radius="20" Opacity="0.25"/>
+                    </Border.Shadow>
+                    
+                    <VerticalStackLayout Spacing="15" Padding="25,20">
+                        <Label Text="🎮 COMO JOGAR" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#333">
+                            <Label.Shadow>
+                                <Shadow Brush="White" Offset="1,1" Radius="2" Opacity="0.8"/>
+                            </Label.Shadow>
+                        </Label>
+                        
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="18" RowSpacing="12">
+                            <!-- Vermelho -->
+                            <Border Grid.Row="0" Grid.Column="0" StrokeThickness="0" WidthRequest="48" HeightRequest="48">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#ff6b6b" Offset="0.0" />
+                                        <GradientStop Color="#ee5a6f" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="#ff6b6b" Offset="0,3" Radius="8" Opacity="0.4"/>
+                                </Border.Shadow>
+                                <Label Text="R" TextColor="White" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Border>
+                            <Label Grid.Row="0" Grid.Column="1" Text="VERMELHO" TextColor="#ff6b6b" FontSize="18" FontAttributes="Bold" VerticalTextAlignment="Center"/>
                             
-                            <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#4dabf7" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
-                                <Label Text="B" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            </Frame>
-                            <Label Grid.Row="1" Grid.Column="1" Text="AZUL" TextColor="#4dabf7" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            <!-- Azul -->
+                            <Border Grid.Row="1" Grid.Column="0" StrokeThickness="0" WidthRequest="48" HeightRequest="48">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#4dabf7" Offset="0.0" />
+                                        <GradientStop Color="#339af0" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="#4dabf7" Offset="0,3" Radius="8" Opacity="0.4"/>
+                                </Border.Shadow>
+                                <Label Text="B" TextColor="White" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Border>
+                            <Label Grid.Row="1" Grid.Column="1" Text="AZUL" TextColor="#4dabf7" FontSize="18" FontAttributes="Bold" VerticalTextAlignment="Center"/>
                             
-                            <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="#51cf66" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
-                                <Label Text="V" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            </Frame>
-                            <Label Grid.Row="2" Grid.Column="1" Text="VERDE" TextColor="#51cf66" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            <!-- Verde -->
+                            <Border Grid.Row="2" Grid.Column="0" StrokeThickness="0" WidthRequest="48" HeightRequest="48">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#51cf66" Offset="0.0" />
+                                        <GradientStop Color="#37b24d" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="#51cf66" Offset="0,3" Radius="8" Opacity="0.4"/>
+                                </Border.Shadow>
+                                <Label Text="V" TextColor="White" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Border>
+                            <Label Grid.Row="2" Grid.Column="1" Text="VERDE" TextColor="#51cf66" FontSize="18" FontAttributes="Bold" VerticalTextAlignment="Center"/>
                             
-                            <Frame Grid.Row="3" Grid.Column="0" BackgroundColor="#ffd43b" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
-                                <Label Text="A" TextColor="#333" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            </Frame>
-                            <Label Grid.Row="3" Grid.Column="1" Text="AMARELO" TextColor="#ffd43b" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            <!-- Amarelo -->
+                            <Border Grid.Row="3" Grid.Column="0" StrokeThickness="0" WidthRequest="48" HeightRequest="48">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#ffd43b" Offset="0.0" />
+                                        <GradientStop Color="#fab005" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="#ffd43b" Offset="0,3" Radius="8" Opacity="0.4"/>
+                                </Border.Shadow>
+                                <Label Text="A" TextColor="#333" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Border>
+                            <Label Grid.Row="3" Grid.Column="1" Text="AMARELO" TextColor="#ffd43b" FontSize="18" FontAttributes="Bold" VerticalTextAlignment="Center"/>
                             
-                            <Frame Grid.Row="4" Grid.Column="0" BackgroundColor="#ff6bf7" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
-                                <Label Text="M" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            </Frame>
-                            <Label Grid.Row="4" Grid.Column="1" Text="MAGENTA" TextColor="#ff6bf7" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            <!-- Magenta -->
+                            <Border Grid.Row="4" Grid.Column="0" StrokeThickness="0" WidthRequest="48" HeightRequest="48">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#ff6bf7" Offset="0.0" />
+                                        <GradientStop Color="#da2ff0" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="#ff6bf7" Offset="0,3" Radius="8" Opacity="0.4"/>
+                                </Border.Shadow>
+                                <Label Text="M" TextColor="White" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Border>
+                            <Label Grid.Row="4" Grid.Column="1" Text="MAGENTA" TextColor="#ff6bf7" FontSize="18" FontAttributes="Bold" VerticalTextAlignment="Center"/>
                             
-                            <Frame Grid.Row="5" Grid.Column="0" BackgroundColor="#4ecdc4" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
-                                <Label Text="C" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            </Frame>
-                            <Label Grid.Row="5" Grid.Column="1" Text="CIANO" TextColor="#4ecdc4" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            <!-- Ciano -->
+                            <Border Grid.Row="5" Grid.Column="0" StrokeThickness="0" WidthRequest="48" HeightRequest="48">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#4ecdc4" Offset="0.0" />
+                                        <GradientStop Color="#22b8cf" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="#4ecdc4" Offset="0,3" Radius="8" Opacity="0.4"/>
+                                </Border.Shadow>
+                                <Label Text="C" TextColor="White" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Border>
+                            <Label Grid.Row="5" Grid.Column="1" Text="CIANO" TextColor="#4ecdc4" FontSize="18" FontAttributes="Bold" VerticalTextAlignment="Center"/>
                         </Grid>
                     </VerticalStackLayout>
-                </Frame>
+                </Border>
 
-                <Label x:Name="HighScoreLabel" Text="🏆 High Score: 0" FontSize="20" HorizontalOptions="Center" TextColor="White" Margin="0,10"/>
+                <!-- High Score Badge -->
+                <Border StrokeThickness="2" Padding="0" Margin="0,5">
+                    <Border.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#ffd43b" Offset="0.0" />
+                            <GradientStop Color="#fab005" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Stroke>
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#fffbea" Offset="0.0" />
+                            <GradientStop Color="#fff4cc" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#ffd43b" Offset="0,4" Radius="12" Opacity="0.3"/>
+                    </Border.Shadow>
+                    
+                    <Label x:Name="HighScoreLabel" Text="🏆 High Score: 0" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#f76707" Padding="20,15">
+                        <Label.Shadow>
+                            <Shadow Brush="White" Offset="1,1" Radius="2" Opacity="0.9"/>
+                        </Label.Shadow>
+                    </Label>
+                </Border>
 
-                <Button Text="COMEÇAR" FontSize="24" FontAttributes="Bold" BackgroundColor="#ff6b6b" TextColor="White" 
-                        CornerRadius="25" HeightRequest="60" Clicked="OnStartGameClicked"/>
+                <!-- Start Button with Glow -->
+                <Border StrokeThickness="0" Margin="0,10,0,0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#ff6b6b" Offset="0.0" />
+                            <GradientStop Color="#ee5a6f" Offset="0.5" />
+                            <GradientStop Color="#fa5252" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="30"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#ff6b6b" Offset="0,6" Radius="20" Opacity="0.5"/>
+                    </Border.Shadow>
+                    
+                    <Button Text="🚀 COMEÇAR JOGO" FontSize="28" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="White" 
+                            HeightRequest="70" Clicked="OnStartGameClicked">
+                        <Button.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.3"/>
+                        </Button.Shadow>
+                    </Button>
+                </Border>
             </VerticalStackLayout>
         </Grid>
+
 
         <!-- Game Screen -->
         <Grid x:Name="GameScreen" IsVisible="False">
@@ -70,112 +278,543 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!-- Header -->
-            <Frame Grid.Row="0" BackgroundColor="#80FFFFFF" CornerRadius="15" Margin="15" Padding="15">
-                <Grid ColumnDefinitions="*,*,*,Auto" ColumnSpacing="15">
-                    <VerticalStackLayout Grid.Column="0">
-                        <Label Text="Level" FontSize="12" TextColor="#333" HorizontalOptions="Center"/>
-                        <Label x:Name="LevelLabel" Text="1" FontSize="24" FontAttributes="Bold" TextColor="#667eea" HorizontalOptions="Center"/>
-                    </VerticalStackLayout>
+            <!-- Header Stats -->
+            <Border Grid.Row="0" StrokeThickness="2" Margin="15,15,15,10">
+                <Border.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#ffffff" Offset="0.0" />
+                        <GradientStop Color="#e0e0e0" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#f8f9ff" Offset="0.0" />
+                        <GradientStop Color="#e8ecff" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="0,4" Radius="15" Opacity="0.2"/>
+                </Border.Shadow>
+                
+                <Grid ColumnDefinitions="*,*,*,Auto" ColumnSpacing="10" Padding="15">
+                    <!-- Level -->
+                    <Border Grid.Column="0" StrokeThickness="0">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#e3f2fd" Offset="0.0" />
+                                <GradientStop Color="#bbdefb" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Padding="8">
+                            <Label Text="⚡ Level" FontSize="12" TextColor="#1976d2" HorizontalOptions="Center" FontAttributes="Bold"/>
+                            <Label x:Name="LevelLabel" Text="1" FontSize="28" FontAttributes="Bold" TextColor="#0d47a1" HorizontalOptions="Center">
+                                <Label.Shadow>
+                                    <Shadow Brush="White" Offset="1,1" Radius="2" Opacity="0.8"/>
+                                </Label.Shadow>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Border>
                     
-                    <VerticalStackLayout Grid.Column="1">
-                        <Label Text="Score" FontSize="12" TextColor="#333" HorizontalOptions="Center"/>
-                        <Label x:Name="ScoreLabel" Text="0" FontSize="24" FontAttributes="Bold" TextColor="#ffd43b" HorizontalOptions="Center"/>
-                    </VerticalStackLayout>
+                    <!-- Score -->
+                    <Border Grid.Column="1" StrokeThickness="0">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#fff8e1" Offset="0.0" />
+                                <GradientStop Color="#ffecb3" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Padding="8">
+                            <Label Text="🎯 Score" FontSize="12" TextColor="#f57c00" HorizontalOptions="Center" FontAttributes="Bold"/>
+                            <Label x:Name="ScoreLabel" Text="0" FontSize="28" FontAttributes="Bold" TextColor="#ef6c00" HorizontalOptions="Center">
+                                <Label.Shadow>
+                                    <Shadow Brush="White" Offset="1,1" Radius="2" Opacity="0.8"/>
+                                </Label.Shadow>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Border>
                     
-                    <VerticalStackLayout Grid.Column="2">
-                        <Label Text="Streak" FontSize="12" TextColor="#333" HorizontalOptions="Center"/>
-                        <Label x:Name="StreakLabel" Text="0" FontSize="24" FontAttributes="Bold" TextColor="#ff6bf7" HorizontalOptions="Center"/>
-                    </VerticalStackLayout>
+                    <!-- Streak -->
+                    <Border Grid.Column="2" StrokeThickness="0">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#f3e5f5" Offset="0.0" />
+                                <GradientStop Color="#e1bee7" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Padding="8">
+                            <Label Text="🔥 Streak" FontSize="12" TextColor="#7b1fa2" HorizontalOptions="Center" FontAttributes="Bold"/>
+                            <Label x:Name="StreakLabel" Text="0" FontSize="28" FontAttributes="Bold" TextColor="#6a1b9a" HorizontalOptions="Center">
+                                <Label.Shadow>
+                                    <Shadow Brush="White" Offset="1,1" Radius="2" Opacity="0.8"/>
+                                </Label.Shadow>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Border>
                     
-                    <HorizontalStackLayout Grid.Column="3" Spacing="5">
-                        <Label x:Name="Heart1" Text="♥" FontSize="32" TextColor="#ff6b6b"/>
-                        <Label x:Name="Heart2" Text="♥" FontSize="32" TextColor="#ff6b6b"/>
-                        <Label x:Name="Heart3" Text="♥" FontSize="32" TextColor="#ff6b6b"/>
+                    <!-- Lives -->
+                    <HorizontalStackLayout Grid.Column="3" Spacing="3" VerticalOptions="Center">
+                        <Label x:Name="Heart1" Text="❤️" FontSize="36" />
+                        <Label x:Name="Heart2" Text="❤️" FontSize="36" />
+                        <Label x:Name="Heart3" Text="❤️" FontSize="36" />
                     </HorizontalStackLayout>
                 </Grid>
-            </Frame>
+            </Border>
 
             <!-- Game Area -->
-            <Frame Grid.Row="1" BackgroundColor="#80FFFFFF" CornerRadius="20" Margin="15" Padding="30">
-                <VerticalStackLayout Spacing="20" VerticalOptions="Center">
-                    <Label x:Name="WordLabel" Text="PRONTO?" FontSize="72" FontAttributes="Bold" 
-                           HorizontalOptions="Center" TextColor="White"/>
-                    
-                    <ProgressBar x:Name="TimeProgressBar" Progress="1" ProgressColor="#51cf66" 
-                                 HeightRequest="15"/>
-                    
-                    <Label x:Name="FeedbackLabel" FontSize="28" FontAttributes="Bold" 
-                           HorizontalOptions="Center" MinimumHeightRequest="40"/>
-                </VerticalStackLayout>
-            </Frame>
-
-            <!-- Controls -->
-            <Grid Grid.Row="2" ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="10" Margin="15,0,15,15">
-                <Button Grid.Row="0" Grid.Column="0" Text="R" FontSize="32" FontAttributes="Bold" 
-                        BackgroundColor="#ff6b6b" TextColor="White" HeightRequest="80" CornerRadius="15"
-                        Clicked="OnColorButtonClicked" CommandParameter="r"/>
-                <Button Grid.Row="0" Grid.Column="1" Text="B" FontSize="32" FontAttributes="Bold" 
-                        BackgroundColor="#4dabf7" TextColor="White" HeightRequest="80" CornerRadius="15"
-                        Clicked="OnColorButtonClicked" CommandParameter="b"/>
-                <Button Grid.Row="0" Grid.Column="2" Text="V" FontSize="32" FontAttributes="Bold" 
-                        BackgroundColor="#51cf66" TextColor="White" HeightRequest="80" CornerRadius="15"
-                        Clicked="OnColorButtonClicked" CommandParameter="v"/>
+            <Border Grid.Row="1" StrokeThickness="3" Margin="15,10">
+                <Border.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#ffffff" Offset="0.0" />
+                        <GradientStop Color="#d0d0d0" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Border.Background>
+                    <RadialGradientBrush Center="0.5,0.5" Radius="0.8">
+                        <GradientStop Color="#ffffff" Offset="0.0" />
+                        <GradientStop Color="#f5f5f5" Offset="0.7" />
+                        <GradientStop Color="#e0e0e0" Offset="1.0" />
+                    </RadialGradientBrush>
+                </Border.Background>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="8,8" Radius="25" Opacity="0.3"/>
+                </Border.Shadow>
                 
-                <Button Grid.Row="1" Grid.Column="0" Text="A" FontSize="32" FontAttributes="Bold" 
-                        BackgroundColor="#ffd43b" TextColor="#333" HeightRequest="80" CornerRadius="15"
-                        Clicked="OnColorButtonClicked" CommandParameter="a"/>
-                <Button Grid.Row="1" Grid.Column="1" Text="M" FontSize="32" FontAttributes="Bold" 
-                        BackgroundColor="#ff6bf7" TextColor="White" HeightRequest="80" CornerRadius="15"
-                        Clicked="OnColorButtonClicked" CommandParameter="m"/>
-                <Button Grid.Row="1" Grid.Column="2" Text="C" FontSize="32" FontAttributes="Bold" 
-                        BackgroundColor="#4ecdc4" TextColor="White" HeightRequest="80" CornerRadius="15"
-                        Clicked="OnColorButtonClicked" CommandParameter="c"/>
+                <VerticalStackLayout Spacing="25" VerticalOptions="Center" Padding="30">
+                    <!-- Word Display with Glow -->
+                    <Border StrokeThickness="0" Padding="30,25" HorizontalOptions="Center">
+                        <Border.Background>
+                            <RadialGradientBrush Center="0.5,0.5" Radius="1">
+                                <GradientStop Color="#20ffffff" Offset="0.0" />
+                                <GradientStop Color="Transparent" Offset="1.0" />
+                            </RadialGradientBrush>
+                        </Border.Background>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                        
+                        <Label x:Name="WordLabel" Text="PRONTO?" FontSize="80" FontAttributes="Bold" 
+                               HorizontalOptions="Center" TextColor="White">
+                            <Label.Shadow>
+                                <Shadow Brush="Black" Offset="4,4" Radius="15" Opacity="0.6"/>
+                            </Label.Shadow>
+                        </Label>
+                    </Border>
+                    
+                    <!-- Progress Bar with Gradient -->
+                    <Border StrokeThickness="2" Padding="4" HeightRequest="28">
+                        <Border.Stroke>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#aaaaaa" Offset="0.0" />
+                                <GradientStop Color="#888888" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Stroke>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Radius="6" Opacity="0.3"/>
+                        </Border.Shadow>
+                        
+                        <ProgressBar x:Name="TimeProgressBar" Progress="1" ProgressColor="#51cf66" HeightRequest="20" />
+                    </Border>
+                    
+                    <!-- Feedback Label -->
+                    <Label x:Name="FeedbackLabel" FontSize="32" FontAttributes="Bold" 
+                           HorizontalOptions="Center" MinimumHeightRequest="45">
+                        <Label.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Radius="8" Opacity="0.4"/>
+                        </Label.Shadow>
+                    </Label>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Color Buttons -->
+            <Grid Grid.Row="2" ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12" Margin="15,10,15,20">
+                <!-- Row 1 -->
+                <Border Grid.Row="0" Grid.Column="0" StrokeThickness="0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#ff6b6b" Offset="0.0" />
+                            <GradientStop Color="#ee5a6f" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#ff6b6b" Offset="0,5" Radius="15" Opacity="0.5"/>
+                    </Border.Shadow>
+                    <Button Text="R" FontSize="40" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="White" 
+                            HeightRequest="90" Clicked="OnColorButtonClicked" CommandParameter="r">
+                        <Button.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Radius="6" Opacity="0.3"/>
+                        </Button.Shadow>
+                    </Button>
+                </Border>
+                
+                <Border Grid.Row="0" Grid.Column="1" StrokeThickness="0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#4dabf7" Offset="0.0" />
+                            <GradientStop Color="#339af0" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#4dabf7" Offset="0,5" Radius="15" Opacity="0.5"/>
+                    </Border.Shadow>
+                    <Button Text="B" FontSize="40" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="White" 
+                            HeightRequest="90" Clicked="OnColorButtonClicked" CommandParameter="b">
+                        <Button.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Radius="6" Opacity="0.3"/>
+                        </Button.Shadow>
+                    </Button>
+                </Border>
+                
+                <Border Grid.Row="0" Grid.Column="2" StrokeThickness="0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#51cf66" Offset="0.0" />
+                            <GradientStop Color="#37b24d" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#51cf66" Offset="0,5" Radius="15" Opacity="0.5"/>
+                    </Border.Shadow>
+                    <Button Text="V" FontSize="40" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="White" 
+                            HeightRequest="90" Clicked="OnColorButtonClicked" CommandParameter="v">
+                        <Button.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Radius="6" Opacity="0.3"/>
+                        </Button.Shadow>
+                    </Button>
+                </Border>
+                
+                <!-- Row 2 -->
+                <Border Grid.Row="1" Grid.Column="0" StrokeThickness="0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#ffd43b" Offset="0.0" />
+                            <GradientStop Color="#fab005" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#ffd43b" Offset="0,5" Radius="15" Opacity="0.5"/>
+                    </Border.Shadow>
+                    <Button Text="A" FontSize="40" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#333" 
+                            HeightRequest="90" Clicked="OnColorButtonClicked" CommandParameter="a">
+                        <Button.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Radius="6" Opacity="0.3"/>
+                        </Button.Shadow>
+                    </Button>
+                </Border>
+                
+                <Border Grid.Row="1" Grid.Column="1" StrokeThickness="0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#ff6bf7" Offset="0.0" />
+                            <GradientStop Color="#da2ff0" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#ff6bf7" Offset="0,5" Radius="15" Opacity="0.5"/>
+                    </Border.Shadow>
+                    <Button Text="M" FontSize="40" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="White" 
+                            HeightRequest="90" Clicked="OnColorButtonClicked" CommandParameter="m">
+                        <Button.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Radius="6" Opacity="0.3"/>
+                        </Button.Shadow>
+                    </Button>
+                </Border>
+                
+                <Border Grid.Row="1" Grid.Column="2" StrokeThickness="0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#4ecdc4" Offset="0.0" />
+                            <GradientStop Color="#22b8cf" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#4ecdc4" Offset="0,5" Radius="15" Opacity="0.5"/>
+                    </Border.Shadow>
+                    <Button Text="C" FontSize="40" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="White" 
+                            HeightRequest="90" Clicked="OnColorButtonClicked" CommandParameter="c">
+                        <Button.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Radius="6" Opacity="0.3"/>
+                        </Button.Shadow>
+                    </Button>
+                </Border>
             </Grid>
         </Grid>
+
 
         <!-- Game Over Screen -->
         <Grid x:Name="GameOverScreen" IsVisible="False">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="0.2*" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="0.2*" />
             </Grid.RowDefinitions>
 
-            <VerticalStackLayout Grid.Row="1" Spacing="20" Padding="30">
-                <Label Text="GAME OVER" FontSize="50" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#ff6b6b"/>
+            <VerticalStackLayout Grid.Row="1" Spacing="25" Padding="25">
+                <!-- Game Over Title -->
+                <Border StrokeThickness="0" Padding="0">
+                    <Border.Background>
+                        <RadialGradientBrush Center="0.5,0.5" Radius="1">
+                            <GradientStop Color="#40ff6b6b" Offset="0.0" />
+                            <GradientStop Color="Transparent" Offset="1.0" />
+                        </RadialGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    
+                    <Label Text="💀 GAME OVER 💀" FontSize="56" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#ff6b6b" Padding="20,10">
+                        <Label.Shadow>
+                            <Shadow Brush="Black" Offset="4,4" Radius="12" Opacity="0.6"/>
+                        </Label.Shadow>
+                    </Label>
+                </Border>
 
-                <Frame BackgroundColor="#80FFFFFF" CornerRadius="15" Padding="20">
-                    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="15">
-                        <VerticalStackLayout Grid.Row="0">
-                            <Label Text="Score Final" FontSize="14" TextColor="#333" HorizontalOptions="Center"/>
-                            <Label x:Name="FinalScoreLabel" Text="0" FontSize="36" FontAttributes="Bold" TextColor="#ffd43b" HorizontalOptions="Center"/>
-                        </VerticalStackLayout>
+                <!-- Stats Card -->
+                <Border StrokeThickness="3" Padding="0" Margin="0,10">
+                    <Border.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#ffffff" Offset="0.0" />
+                            <GradientStop Color="#d0d0d0" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Stroke>
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#ffffff" Offset="0.0" />
+                            <GradientStop Color="#f5f5f5" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="6,6" Radius="20" Opacity="0.3"/>
+                    </Border.Shadow>
+                    
+                    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="18" Padding="25,30">
+                        <!-- Final Score -->
+                        <Border Grid.Row="0" StrokeThickness="0">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#fff8e1" Offset="0.0" />
+                                    <GradientStop Color="#ffecb3" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="15"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Brush="#ffd43b" Offset="0,3" Radius="10" Opacity="0.3"/>
+                            </Border.Shadow>
+                            
+                            <VerticalStackLayout Padding="15,12">
+                                <Label Text="🎯 SCORE FINAL" FontSize="16" TextColor="#f57c00" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                <Label x:Name="FinalScoreLabel" Text="0" FontSize="48" FontAttributes="Bold" TextColor="#ef6c00" HorizontalOptions="Center">
+                                    <Label.Shadow>
+                                        <Shadow Brush="White" Offset="2,2" Radius="3" Opacity="0.9"/>
+                                    </Label.Shadow>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Border>
                         
-                        <VerticalStackLayout Grid.Row="1">
-                            <Label Text="Level Alcançado" FontSize="14" TextColor="#333" HorizontalOptions="Center"/>
-                            <Label x:Name="FinalLevelLabel" Text="1" FontSize="36" FontAttributes="Bold" TextColor="#667eea" HorizontalOptions="Center"/>
-                        </VerticalStackLayout>
+                        <!-- Level Achieved -->
+                        <Border Grid.Row="1" StrokeThickness="0">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#e3f2fd" Offset="0.0" />
+                                    <GradientStop Color="#bbdefb" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="15"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Brush="#4dabf7" Offset="0,3" Radius="10" Opacity="0.3"/>
+                            </Border.Shadow>
+                            
+                            <VerticalStackLayout Padding="15,12">
+                                <Label Text="⚡ LEVEL ALCANÇADO" FontSize="16" TextColor="#1976d2" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                <Label x:Name="FinalLevelLabel" Text="1" FontSize="48" FontAttributes="Bold" TextColor="#0d47a1" HorizontalOptions="Center">
+                                    <Label.Shadow>
+                                        <Shadow Brush="White" Offset="2,2" Radius="3" Opacity="0.9"/>
+                                    </Label.Shadow>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Border>
                         
-                        <VerticalStackLayout Grid.Row="2">
-                            <Label Text="Maior Streak" FontSize="14" TextColor="#333" HorizontalOptions="Center"/>
-                            <Label x:Name="MaxStreakLabel" Text="0" FontSize="36" FontAttributes="Bold" TextColor="#ff6bf7" HorizontalOptions="Center"/>
-                        </VerticalStackLayout>
+                        <!-- Max Streak -->
+                        <Border Grid.Row="2" StrokeThickness="0">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#f3e5f5" Offset="0.0" />
+                                    <GradientStop Color="#e1bee7" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="15"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Brush="#ff6bf7" Offset="0,3" Radius="10" Opacity="0.3"/>
+                            </Border.Shadow>
+                            
+                            <VerticalStackLayout Padding="15,12">
+                                <Label Text="🔥 MAIOR STREAK" FontSize="16" TextColor="#7b1fa2" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                <Label x:Name="MaxStreakLabel" Text="0" FontSize="48" FontAttributes="Bold" TextColor="#6a1b9a" HorizontalOptions="Center">
+                                    <Label.Shadow>
+                                        <Shadow Brush="White" Offset="2,2" Radius="3" Opacity="0.9"/>
+                                    </Label.Shadow>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Border>
                     </Grid>
-                </Frame>
+                </Border>
 
-                <Label x:Name="NewRecordLabel" Text="🎉 NOVO HIGH SCORE! 🎉" FontSize="24" FontAttributes="Bold" 
-                       HorizontalOptions="Center" TextColor="#51cf66" IsVisible="False"/>
+                <!-- New Record Badge -->
+                <Border x:Name="NewRecordLabel" StrokeThickness="3" Padding="0" IsVisible="False" Margin="0,5">
+                    <Border.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#51cf66" Offset="0.0" />
+                            <GradientStop Color="#37b24d" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Stroke>
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#d3f9d8" Offset="0.0" />
+                            <GradientStop Color="#b2f2bb" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#51cf66" Offset="0,4" Radius="15" Opacity="0.5"/>
+                    </Border.Shadow>
+                    
+                    <Label Text="🎉 NOVO HIGH SCORE! 🎉" FontSize="26" FontAttributes="Bold" 
+                           HorizontalOptions="Center" TextColor="#2b8a3e" Padding="20,15">
+                        <Label.Shadow>
+                            <Shadow Brush="White" Offset="1,1" Radius="2" Opacity="0.9"/>
+                        </Label.Shadow>
+                    </Label>
+                </Border>
 
-                <Label x:Name="HighScoreGameOverLabel" Text="High Score: 0" FontSize="20" HorizontalOptions="Center" TextColor="White"/>
+                <!-- Current High Score Display -->
+                <Border StrokeThickness="2" Padding="0">
+                    <Border.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#ffd43b" Offset="0.0" />
+                            <GradientStop Color="#fab005" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Stroke>
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#fffbea" Offset="0.0" />
+                            <GradientStop Color="#fff4cc" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#ffd43b" Offset="0,3" Radius="10" Opacity="0.3"/>
+                    </Border.Shadow>
+                    
+                    <Label x:Name="HighScoreGameOverLabel" Text="🏆 High Score: 0" FontSize="22" FontAttributes="Bold" 
+                           HorizontalOptions="Center" TextColor="#f76707" Padding="18,12">
+                        <Label.Shadow>
+                            <Shadow Brush="White" Offset="1,1" Radius="2" Opacity="0.9"/>
+                        </Label.Shadow>
+                    </Label>
+                </Border>
 
-                <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
-                    <Button Grid.Column="0" Text="MENU" FontSize="20" FontAttributes="Bold" 
-                            BackgroundColor="#80FFFFFF" TextColor="#667eea" CornerRadius="25" HeightRequest="60"
-                            Clicked="OnMenuClicked"/>
-                    <Button Grid.Column="1" Text="JOGAR NOVAMENTE" FontSize="18" FontAttributes="Bold" 
-                            BackgroundColor="#ff6b6b" TextColor="White" CornerRadius="25" HeightRequest="60"
-                            Clicked="OnStartGameClicked"/>
+                <!-- Action Buttons -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="15" Margin="0,15,0,0">
+                    <!-- Menu Button -->
+                    <Border Grid.Column="0" StrokeThickness="2">
+                        <Border.Stroke>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#667eea" Offset="0.0" />
+                                <GradientStop Color="#764ba2" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Stroke>
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#f8f9ff" Offset="0.0" />
+                                <GradientStop Color="#e8ecff" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="25"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#667eea" Offset="0,4" Radius="12" Opacity="0.3"/>
+                        </Border.Shadow>
+                        
+                        <Button Text="🏠 MENU" FontSize="20" FontAttributes="Bold" BackgroundColor="Transparent" 
+                                TextColor="#667eea" HeightRequest="65" Clicked="OnMenuClicked">
+                            <Button.Shadow>
+                                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.2"/>
+                            </Button.Shadow>
+                        </Button>
+                    </Border>
+                    
+                    <!-- Play Again Button -->
+                    <Border Grid.Column="1" StrokeThickness="0">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#ff6b6b" Offset="0.0" />
+                                <GradientStop Color="#ee5a6f" Offset="0.5" />
+                                <GradientStop Color="#fa5252" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="25"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#ff6b6b" Offset="0,4" Radius="15" Opacity="0.5"/>
+                        </Border.Shadow>
+                        
+                        <Button Text="🔄 JOGAR" FontSize="20" FontAttributes="Bold" BackgroundColor="Transparent" 
+                                TextColor="White" HeightRequest="65" Clicked="OnStartGameClicked">
+                            <Button.Shadow>
+                                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.3"/>
+                            </Button.Shadow>
+                        </Button>
+                    </Border>
                 </Grid>
             </VerticalStackLayout>
         </Grid>
