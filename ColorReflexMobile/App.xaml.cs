@@ -1,3 +1,4 @@
+#nullable enable
 using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 
@@ -8,7 +9,11 @@ namespace ColorReflex
         public App()
         {
             InitializeComponent();
-            MainPage = new AppShell();
+        }
+
+        protected override Window CreateWindow(IActivationState? activationState)
+        {
+            return new Window(new AppShell());
         }
     }
 }

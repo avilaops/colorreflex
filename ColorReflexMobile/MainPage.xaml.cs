@@ -1,3 +1,4 @@
+#nullable enable
 using Microsoft.Maui.Controls;
 using System;
 using System.Threading.Tasks;
@@ -168,8 +169,8 @@ namespace ColorReflex
             VibrationService.VibrateClick();
 
             // Visual feedback
-            await button.ScaleTo(0.9, 50);
-            await button.ScaleTo(1.0, 50);
+            await button.ScaleToAsync(0.9, 50);
+            await button.ScaleToAsync(1.0, 50);
 
             if (key == gameState.CorrectKey)
             {
