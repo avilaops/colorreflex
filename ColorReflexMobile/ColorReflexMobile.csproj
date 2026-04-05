@@ -18,9 +18,14 @@
     <Authors>AvilaOps</Authors>
     <Company>AvilaOps</Company>
     <Product>Color Reflex</Product>
-    <Copyright>Copyright © 2026 AvilaOps</Copyright>
-    <Description>Jogo viciante baseado no Efeito Stroop - teste seus reflexos!</Description>
+    <Copyright>Copyright © 2026 AvilaOps. Todos os direitos reservados.</Copyright>
+    <Description>Color Reflex - Jogo viciante baseado no Efeito Stroop! Teste seus reflexos, desafie sua mente e quebre recordes. Escolha a COR da palavra, não o que está escrito. Rápido, desafiador e extremamente viciante! Por AvilaOps Games.</Description>
+    <PackageTags>jogo;game;puzzle;reflex;stroop;brain;teste;desafio;viciante;avilaops</PackageTags>
     <ApplicationIdGuid>3C7A2B1E-8F4D-4B9C-A1E3-5D6F7A8B9C0D</ApplicationIdGuid>
+    <NeutralLanguage>pt-BR</NeutralLanguage>
+    <PackageProjectUrl>https://github.com/avilaops/colorreflex</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/avilaops/colorreflex</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
 
     <!-- Versions -->
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>

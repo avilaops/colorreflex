@@ -1,3 +1,19 @@
-<svg width="456" height="456" viewBox="0 0 456 456" xmlns="http://www.w3.org/2000/svg">
-    <text x="228" y="280" font-family="Arial, sans-serif" font-size="180" font-weight="bold" text-anchor="middle" fill="white">CR</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="432" height="432" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="fgGlow" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Decorative color circles -->
+  <circle cx="120" cy="120" r="35" fill="#FF6B6B" opacity="0.9"/>
+  <circle cx="312" cy="120" r="35" fill="#4ECDC4" opacity="0.9"/>
+  <circle cx="216" cy="216" r="50" fill="url(#fgGlow)"/>
+  <circle cx="120" cy="312" r="35" fill="#95E1D3" opacity="0.9"/>
+  <circle cx="312" cy="312" r="35" fill="#FFE66D" opacity="0.9"/>
+  
+  <!-- Central "CR" text -->
+  <text x="216" y="238" font-family="Arial Black, sans-serif" font-size="68" font-weight="900" text-anchor="middle" fill="#667eea" letter-spacing="-3">CR</text>
 </svg>

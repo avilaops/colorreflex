@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true" android:label="Color Reflex" android:theme="@style/Maui.SplashTheme">
+	<application 
+		android:allowBackup="true" 
+		android:icon="@mipmap/appicon" 
+		android:roundIcon="@mipmap/appicon_round" 
+		android:supportsRtl="true" 
+		android:label="Color Reflex" 
+		android:theme="@style/Maui.SplashTheme"
+		android:hardwareAccelerated="true">
 		<meta-data android:name="com.avilaops" android:value="AvilaOps Games" />
 	</application>
+	
+	<!-- Permissions -->
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+	
+	<!-- Features -->
+	<uses-feature android:name="android.hardware.touchscreen" android:required="true" />
 </manifest>

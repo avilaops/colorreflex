@@ -1,6 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg width="456" height="456" viewBox="0 0 456 456" xmlns="http://www.w3.org/2000/svg">
-    <rect width="456" height="456" fill="#667eea"/>
-    <circle cx="228" cy="228" r="150" fill="white" opacity="0.2"/>
-    <text x="228" y="260" font-family="Arial, sans-serif" font-size="140" font-weight="bold" text-anchor="middle" fill="white">COLOR</text>
-    <text x="228" y="340" font-family="Arial, sans-serif" font-size="80" font-weight="bold" text-anchor="middle" fill="#4ecdc4">REFLEX</text>
+  <defs>
+    <linearGradient id="splashBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="456" height="456" fill="url(#splashBg)"/>
+  
+  <!-- Glow effect -->
+  <ellipse cx="228" cy="180" rx="200" ry="150" fill="url(#glow)"/>
+  
+  <!-- Color circles animation suggestion -->
+  <circle cx="100" cy="100" r="30" fill="#FF6B6B" opacity="0.6"/>
+  <circle cx="356" cy="100" r="30" fill="#4ECDC4" opacity="0.6"/>
+  <circle cx="100" cy="356" r="30" fill="#95E1D3" opacity="0.6"/>
+  <circle cx="356" cy="356" r="30" fill="#FFE66D" opacity="0.6"/>
+  
+  <!-- Main title -->
+  <text x="228" y="200" font-family="Arial Black, sans-serif" font-size="64" font-weight="900" text-anchor="middle" fill="white" letter-spacing="2">COLOR</text>
+  <text x="228" y="260" font-family="Arial Black, sans-serif" font-size="64" font-weight="900" text-anchor="middle" fill="#4ecdc4" letter-spacing="2">REFLEX</text>
+  
+  <!-- Tagline -->
+  <text x="228" y="310" font-family="Arial, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="white" opacity="0.8">Teste seus reflexos</text>
+  
+  <!-- AvilaOps branding -->
+  <text x="228" y="400" font-family="Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="white" opacity="0.9">AVILAOPS</text>
+  <text x="228" y="425" font-family="Arial, sans-serif" font-size="14" font-weight="400" text-anchor="middle" fill="white" opacity="0.7">GAMES</text>
 </svg>
