@@ -91,7 +91,7 @@ namespace ColorReflex
                 var toneGen = new Android.Media.ToneGenerator(Android.Media.Stream.Music, 80);
                 // Map frequency to DTMF tone (approximate)
                 if (frequency > 1000)
-                    toneGen.StartTone(Android.Media.Tone.DtmfStar, duration);
+                    toneGen.StartTone(Android.Media.Tone.PropBeep, duration);
                 else if (frequency > 600)
                     toneGen.StartTone(Android.Media.Tone.Dtmf9, duration);
                 else if (frequency > 400)
