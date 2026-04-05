@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColorReflex.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Colors -->
+            <Color x:Key="Primary">#667eea</Color>
+            <Color x:Key="Secondary">#764ba2</Color>
+            <Color x:Key="Tertiary">#2ea44f</Color>
+            
+            <Color x:Key="Red">#ff6b6b</Color>
+            <Color x:Key="Blue">#4dabf7</Color>
+            <Color x:Key="Green">#51cf66</Color>
+            <Color x:Key="Yellow">#ffd43b</Color>
+            <Color x:Key="Magenta">#ff6bf7</Color>
+            <Color x:Key="Cyan">#4ecdc4</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

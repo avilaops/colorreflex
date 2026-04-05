@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AvilaOps">
+    <meta name="description" content="Color Reflex - Jogo viciante que testa seus reflexos!">
+    <title>Color Reflex - AvilaOps Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Menu Principal -->
+        <div id="menuScreen" class="screen active">
+            <div class="menu-content">
+                <h1 class="game-title">
+                    <span class="color-text">COLOR</span>
+                    <span class="reflex-text">REFLEX</span>
+                </h1>
+                <p class="subtitle">Pressione a tecla da COR, não da palavra!</p>
+                
+                <div class="instructions">
+                    <h3>Como Jogar:</h3>
+                    <div class="keys-grid">
+                        <div class="key-item"><span class="key">R</span> = <span class="color-label red">VERMELHO</span></div>
+                        <div class="key-item"><span class="key">B</span> = <span class="color-label blue">AZUL</span></div>
+                        <div class="key-item"><span class="key">V</span> = <span class="color-label green">VERDE</span></div>
+                        <div class="key-item"><span class="key">A</span> = <span class="color-label yellow">AMARELO</span></div>
+                        <div class="key-item"><span class="key">M</span> = <span class="color-label magenta">MAGENTA</span></div>
+                        <div class="key-item"><span class="key">C</span> = <span class="color-label cyan">CIANO</span></div>
+                    </div>
+                </div>
+
+                <div class="high-score">
+                    <span class="trophy">🏆</span>
+                    <span>High Score: <strong id="highScoreMenu">0</strong></span>
+                </div>
+
+                <div class="audio-controls">
+                    <button class="btn-icon" onclick="toggleAudio()" id="audioBtn" title="Toggle Sound">
+                        <span id="audioIcon">🔊</span>
+                    </button>
+                    <button class="btn-icon" onclick="toggleVibration()" id="vibrationBtn" title="Toggle Vibration">
+                        <span id="vibrationIcon">📳</span>
+                    </button>
+                </div>
+
+                <button class="btn-primary" onclick="startGame()">
+                    <span class="btn-text">COMEÇAR</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tela do Jogo -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Level</span>
+                        <span class="stat-value" id="level">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Score</span>
+                        <span class="stat-value score" id="score">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Streak</span>
+                        <span class="stat-value streak" id="streak">0</span>
+                    </div>
+                </div>
+                <div class="lives" id="lives">
+                    <span class="heart">♥</span>
+                    <span class="heart">♥</span>
+                    <span class="heart">♥</span>
+                </div>
+            </div>
+
+            <div class="game-area">
+                <div class="word-display" id="wordDisplay">PRONTO?</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="feedback" id="feedback"></div>
+            </div>
+
+            <div class="keys-hint">
+                <span class="hint-key red">R</span>
+                <span class="hint-key blue">B</span>
+                <span class="hint-key green">V</span>
+                <span class="hint-key yellow">A</span>
+                <span class="hint-key magenta">M</span>
+                <span class="hint-key cyan">C</span>
+            </div>
+        </div>
+
+        <!-- Tela de Game Over -->
+        <div id="gameOverScreen" class="screen">
+            <div class="game-over-content">
+                <h1 class="game-over-title">GAME OVER</h1>
+                
+                <div class="final-stats">
+                    <div class="final-stat">
+                        <span class="final-label">Score Final</span>
+                        <span class="final-value" id="finalScore">0</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="final-label">Level Alcançado</span>
+                        <span class="final-value" id="finalLevel">1</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="final-label">Maior Streak</span>
+                        <span class="final-value" id="maxStreak">0</span>
+                    </div>
+                </div>
+
+                <div class="new-record" id="newRecord" style="display: none;">
+                    🎉 NOVO HIGH SCORE! 🎉
+                </div>
+
+                <div class="high-score-display">
+                    High Score: <strong id="highScoreGameOver">0</strong>
+                </div>
+
+                <div class="game-over-buttons">
+                    <button class="btn-secondary" onclick="showMenu()">Menu</button>
+                    <button class="btn-primary" onclick="startGame()">Jogar Novamente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="position: fixed; bottom: 10px; width: 100%; text-align: center; color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+        Made with ♥ by <strong>AvilaOps</strong>
+    </footer>
+
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColorReflex.MainPage"
+             BackgroundColor="#667eea">
+
+    <Grid>
+        <!-- Menu Screen -->
+        <Grid x:Name="MenuScreen" IsVisible="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <VerticalStackLayout Grid.Row="1" Spacing="20" Padding="30">
+                <Label Text="COLOR" FontSize="60" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#4ecdc4"/>
+                <Label Text="REFLEX" FontSize="60" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White"/>
+                <Label Text="Pressione a COR, não a palavra!" FontSize="16" HorizontalOptions="Center" TextColor="White" Margin="0,10,0,20"/>
+
+                <Frame BackgroundColor="#80FFFFFF" CornerRadius="15" Padding="20" Margin="0,10">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Como Jogar:" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#333"/>
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="15" RowSpacing="8">
+                            <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#ff6b6b" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
+                                <Label Text="R" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Frame>
+                            <Label Grid.Row="0" Grid.Column="1" Text="VERMELHO" TextColor="#ff6b6b" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            
+                            <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#4dabf7" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
+                                <Label Text="B" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Frame>
+                            <Label Grid.Row="1" Grid.Column="1" Text="AZUL" TextColor="#4dabf7" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            
+                            <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="#51cf66" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
+                                <Label Text="V" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Frame>
+                            <Label Grid.Row="2" Grid.Column="1" Text="VERDE" TextColor="#51cf66" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            
+                            <Frame Grid.Row="3" Grid.Column="0" BackgroundColor="#ffd43b" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
+                                <Label Text="A" TextColor="#333" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Frame>
+                            <Label Grid.Row="3" Grid.Column="1" Text="AMARELO" TextColor="#ffd43b" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            
+                            <Frame Grid.Row="4" Grid.Column="0" BackgroundColor="#ff6bf7" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
+                                <Label Text="M" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Frame>
+                            <Label Grid.Row="4" Grid.Column="1" Text="MAGENTA" TextColor="#ff6bf7" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            
+                            <Frame Grid.Row="5" Grid.Column="0" BackgroundColor="#4ecdc4" Padding="0" WidthRequest="40" HeightRequest="35" CornerRadius="5" BorderColor="Transparent">
+                                <Label Text="C" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Frame>
+                            <Label Grid.Row="5" Grid.Column="1" Text="CIANO" TextColor="#4ecdc4" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Label x:Name="HighScoreLabel" Text="🏆 High Score: 0" FontSize="20" HorizontalOptions="Center" TextColor="White" Margin="0,10"/>
+
+                <Button Text="COMEÇAR" FontSize="24" FontAttributes="Bold" BackgroundColor="#ff6b6b" TextColor="White" 
+                        CornerRadius="25" HeightRequest="60" Clicked="OnStartGameClicked"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Game Screen -->
+        <Grid x:Name="GameScreen" IsVisible="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Frame Grid.Row="0" BackgroundColor="#80FFFFFF" CornerRadius="15" Margin="15" Padding="15">
+                <Grid ColumnDefinitions="*,*,*,Auto" ColumnSpacing="15">
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="Level" FontSize="12" TextColor="#333" HorizontalOptions="Center"/>
+                        <Label x:Name="LevelLabel" Text="1" FontSize="24" FontAttributes="Bold" TextColor="#667eea" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                    
+                    <VerticalStackLayout Grid.Column="1">
+                        <Label Text="Score" FontSize="12" TextColor="#333" HorizontalOptions="Center"/>
+                        <Label x:Name="ScoreLabel" Text="0" FontSize="24" FontAttributes="Bold" TextColor="#ffd43b" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                    
+                    <VerticalStackLayout Grid.Column="2">
+                        <Label Text="Streak" FontSize="12" TextColor="#333" HorizontalOptions="Center"/>
+                        <Label x:Name="StreakLabel" Text="0" FontSize="24" FontAttributes="Bold" TextColor="#ff6bf7" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                    
+                    <HorizontalStackLayout Grid.Column="3" Spacing="5">
+                        <Label x:Name="Heart1" Text="♥" FontSize="32" TextColor="#ff6b6b"/>
+                        <Label x:Name="Heart2" Text="♥" FontSize="32" TextColor="#ff6b6b"/>
+                        <Label x:Name="Heart3" Text="♥" FontSize="32" TextColor="#ff6b6b"/>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Game Area -->
+            <Frame Grid.Row="1" BackgroundColor="#80FFFFFF" CornerRadius="20" Margin="15" Padding="30">
+                <VerticalStackLayout Spacing="20" VerticalOptions="Center">
+                    <Label x:Name="WordLabel" Text="PRONTO?" FontSize="72" FontAttributes="Bold" 
+                           HorizontalOptions="Center" TextColor="White"/>
+                    
+                    <ProgressBar x:Name="TimeProgressBar" Progress="1" ProgressColor="#51cf66" 
+                                 HeightRequest="15"/>
+                    
+                    <Label x:Name="FeedbackLabel" FontSize="28" FontAttributes="Bold" 
+                           HorizontalOptions="Center" MinimumHeightRequest="40"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Controls -->
+            <Grid Grid.Row="2" ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="10" Margin="15,0,15,15">
+                <Button Grid.Row="0" Grid.Column="0" Text="R" FontSize="32" FontAttributes="Bold" 
+                        BackgroundColor="#ff6b6b" TextColor="White" HeightRequest="80" CornerRadius="15"
+                        Clicked="OnColorButtonClicked" CommandParameter="r"/>
+                <Button Grid.Row="0" Grid.Column="1" Text="B" FontSize="32" FontAttributes="Bold" 
+                        BackgroundColor="#4dabf7" TextColor="White" HeightRequest="80" CornerRadius="15"
+                        Clicked="OnColorButtonClicked" CommandParameter="b"/>
+                <Button Grid.Row="0" Grid.Column="2" Text="V" FontSize="32" FontAttributes="Bold" 
+                        BackgroundColor="#51cf66" TextColor="White" HeightRequest="80" CornerRadius="15"
+                        Clicked="OnColorButtonClicked" CommandParameter="v"/>
+                
+                <Button Grid.Row="1" Grid.Column="0" Text="A" FontSize="32" FontAttributes="Bold" 
+                        BackgroundColor="#ffd43b" TextColor="#333" HeightRequest="80" CornerRadius="15"
+                        Clicked="OnColorButtonClicked" CommandParameter="a"/>
+                <Button Grid.Row="1" Grid.Column="1" Text="M" FontSize="32" FontAttributes="Bold" 
+                        BackgroundColor="#ff6bf7" TextColor="White" HeightRequest="80" CornerRadius="15"
+                        Clicked="OnColorButtonClicked" CommandParameter="m"/>
+                <Button Grid.Row="1" Grid.Column="2" Text="C" FontSize="32" FontAttributes="Bold" 
+                        BackgroundColor="#4ecdc4" TextColor="White" HeightRequest="80" CornerRadius="15"
+                        Clicked="OnColorButtonClicked" CommandParameter="c"/>
+            </Grid>
+        </Grid>
+
+        <!-- Game Over Screen -->
+        <Grid x:Name="GameOverScreen" IsVisible="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <VerticalStackLayout Grid.Row="1" Spacing="20" Padding="30">
+                <Label Text="GAME OVER" FontSize="50" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#ff6b6b"/>
+
+                <Frame BackgroundColor="#80FFFFFF" CornerRadius="15" Padding="20">
+                    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="15">
+                        <VerticalStackLayout Grid.Row="0">
+                            <Label Text="Score Final" FontSize="14" TextColor="#333" HorizontalOptions="Center"/>
+                            <Label x:Name="FinalScoreLabel" Text="0" FontSize="36" FontAttributes="Bold" TextColor="#ffd43b" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                        
+                        <VerticalStackLayout Grid.Row="1">
+                            <Label Text="Level Alcançado" FontSize="14" TextColor="#333" HorizontalOptions="Center"/>
+                            <Label x:Name="FinalLevelLabel" Text="1" FontSize="36" FontAttributes="Bold" TextColor="#667eea" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                        
+                        <VerticalStackLayout Grid.Row="2">
+                            <Label Text="Maior Streak" FontSize="14" TextColor="#333" HorizontalOptions="Center"/>
+                            <Label x:Name="MaxStreakLabel" Text="0" FontSize="36" FontAttributes="Bold" TextColor="#ff6bf7" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <Label x:Name="NewRecordLabel" Text="🎉 NOVO HIGH SCORE! 🎉" FontSize="24" FontAttributes="Bold" 
+                       HorizontalOptions="Center" TextColor="#51cf66" IsVisible="False"/>
+
+                <Label x:Name="HighScoreGameOverLabel" Text="High Score: 0" FontSize="20" HorizontalOptions="Center" TextColor="White"/>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                    <Button Grid.Column="0" Text="MENU" FontSize="20" FontAttributes="Bold" 
+                            BackgroundColor="#80FFFFFF" TextColor="#667eea" CornerRadius="25" HeightRequest="60"
+                            Clicked="OnMenuClicked"/>
+                    <Button Grid.Column="1" Text="JOGAR NOVAMENTE" FontSize="18" FontAttributes="Bold" 
+                            BackgroundColor="#ff6b6b" TextColor="White" CornerRadius="25" HeightRequest="60"
+                            Clicked="OnStartGameClicked"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+
+</ContentPage>
